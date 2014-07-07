@@ -16,15 +16,19 @@
 
     <tbody>
       <% @services.each do |service| %>
-        <tr>
-          <td class="status"><span class="fa fa-power-off"></span> ON</td>
+        <% ping = ping(service.address, service.port) %>
+        <% if ping == true %>
+        <tr class="success">
+          <td class="status"><span class="fa fa-circle-o-notch"></span> online</td>
+        <% else %>
+        <tr class="danger">
+          <td class="status"><span class="fa fa-power-off"></span> offline</td>
+        <% end %>
           <td class="name"><%= link_to service.name, edit_service_path(service) %></td>
           <td class="address"><span class="fa fa-desktop"> <%= service.address %></span></td>
           <td class="port"><span class="fa fa-slack"> <%= service.port %></span></td>
           <td class="action">
-            <%= link_to @service, method: :delete, class: 'btn btn-xs btn-danger', data: { confirm: 'Are you sure?' } do %>
-              <span class="fa fa-cut"></span> delete !
-            <% end %>
+
           </td>
         </tr>
       <% end %>

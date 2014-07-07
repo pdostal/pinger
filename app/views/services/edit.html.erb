@@ -1,3 +1,9 @@
 <h1>Edit</h1>
 
 <%= render 'form' %>
+
+<hr />
+
+<%= link_to @service, method: :delete, class: 'btn btn-xs btn-danger', data: { confirm: 'Are you sure?' } do %>
+  <span class="fa fa-cut"></span> delete !
+<% end %>
