@@ -1,27 +1,33 @@
-<h1>Services</h1>
-
-<table>
-  <thead>
-    <tr>
-      <th>Status</th>
-      <th>Name</th>
-      <th>Address</th>
-      <th>Port</th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @services.each do |service| %>
+<div class="table-responsive">
+  <h1>Services</h1>
+  <%= link_to new_service_path, class: 'btn btn-xs btn-primary' do %>
+    <span class="fa fa-plus"></span> Add service !
+  <% end %>
+  <table class="table table-hover">
+    <thead>
       <tr>
-        <td></td>
-        <td><%= link_to service.name, service %></td>
-        <td><%= service.address %></td>
-        <td><%= service.port %></td>
+        <th class="status">Status</th>
+        <th class="name">Name</th>
+        <th class="address">Address</th>
+        <th class="port">Port</th>
+        <th class="action"></th>
       </tr>
-    <% end %>
-  </tbody>
-</table>
+    </thead>
 
-<br>
-
-<%= link_to 'New Service', new_service_path %>
+    <tbody>
+      <% @services.each do |service| %>
+        <tr>
+          <td class="status"><span class="fa fa-power-off"></span> ON</td>
+          <td class="name"><%= link_to service.name, edit_service_path(service) %></td>
+          <td class="address"><span class="fa fa-desktop"> <%= service.address %></span></td>
+          <td class="port"><span class="fa fa-slack"> <%= service.port %></span></td>
+          <td class="action">
+            <%= link_to @service, method: :delete, class: 'btn btn-xs btn-danger', data: { confirm: 'Are you sure?' } do %>
+              <span class="fa fa-cut"></span> delete !
+            <% end %>
+          </td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>

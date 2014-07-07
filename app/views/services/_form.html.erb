@@ -11,19 +11,21 @@
     </div>
   <% end %>
 
-  <div class="field">
+  <div class="form-group">
     <%= f.label :name %><br>
     <%= f.text_field :name %>
   </div>
-  <div class="field">
+  <div class="form-group">
     <%= f.label :address %><br>
     <%= f.text_field :address %>
   </div>
-  <div class="field">
+  <div class="form-group">
     <%= f.label :port %><br>
     <%= f.number_field :port %>
   </div>
-  <div class="actions">
-    <%= f.submit %>
+  <div class="">
+    <%= button_tag nil, class: 'btn btn-default' do %>
+      <span class="fa fa-check"> Submit</span>
+    <% end %>
   </div>
 <% end %>

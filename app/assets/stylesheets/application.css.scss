@@ -1,0 +1,15 @@
+/*
+ *= require bootstrap
+ *= require font-awesome
+ *= require_tree .
+ *= require_self
+*/
+
+.row { margin-top: 25px; }
+.table-responsive>h1 { display: inline; }
+.table-responsive>.btn { float: right; margin: 15px 5px 0px 0px; }
+.action { text-align: right; }
+.name>a { color: #000; }
+.status { text-align: center; }
+.table>tbody>tr>td { border-top: none; }
+.table>thead>tr>th { border-bottom: none; }
