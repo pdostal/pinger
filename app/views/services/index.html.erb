@@ -10,7 +10,6 @@
         <th class="name">Name</th>
         <th class="address">Address</th>
         <th class="port">Port</th>
-        <th class="action"></th>
       </tr>
     </thead>
 
@@ -27,9 +26,6 @@
           <td class="name"><%= link_to service.name, edit_service_path(service) %></td>
           <td class="address"><span class="fa fa-desktop"> <%= service.address %></span></td>
           <td class="port"><span class="fa fa-slack"> <%= service.port %></span></td>
-          <td class="action">
-
-          </td>
         </tr>
       <% end %>
     </tbody>
