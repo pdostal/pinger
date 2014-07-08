@@ -6,11 +6,6 @@ class ServicesController < ApplicationController
     @services = Service.order(position: :asc)
   end
 
-  # POST /services/move
-  def movedown
-    redirect_to services_url
-  end
-
   # POST /services/moveup
   def moveup
     actual = Service.where(id: params[:id]).first
@@ -41,6 +36,11 @@ class ServicesController < ApplicationController
 
   # GET /services/new
   def new
+    if Service.last.present?
+      @position = Service.last.position + 1
+    else
+      @position = 1
+    end
     @service = Service.new
   end
 
