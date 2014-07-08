@@ -3,11 +3,35 @@ class ServicesController < ApplicationController
 
   # GET /services
   def index
-    @services = Service.all
+    @services = Service.order(position: :desc)
   end
 
-  # GET /services/1
-  def show
+  # POST /services/moveup
+  def moveup
+    actual = Service.where(id: params[:id]).first
+    if actual.present?
+      original = Service.where(position: actual.position.to_i + 1).first
+      actual.position = actual.position.to_i + 1
+      if actual.save
+        original.position = original.position.to_i - 1
+        original.save
+      end
+    end
+    redirect_to services_url
+  end
+
+  # POST /services/movedown
+  def movedown
+    actual = Service.where(id: params[:id]).first
+    if actual.present?
+      original = Service.where(position: actual.position.to_i - 1).first
+      actual.position = actual.position.to_i - 1
+      if actual.save
+        original.position = original.position.to_i + 1
+        original.save
+      end
+    end
+    redirect_to services_url
   end
 
   # GET /services/new
@@ -21,7 +45,12 @@ class ServicesController < ApplicationController
 
   # POST /services
   def create
-    @service = Service.new(service_params)
+    if position = Service.last.present?
+      position = Service.last.position.to_i+1
+    else
+      position = 1
+    end
+    @service = Service.new(service_params, position: position)
 
     respond_to do |format|
       if @service.save

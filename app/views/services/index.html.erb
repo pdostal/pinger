@@ -10,24 +10,31 @@
         <th class="name">Name</th>
         <th class="address">Address</th>
         <th class="port">Port</th>
+        <th class="action"></th>
       </tr>
     </thead>
 
-    <tbody>
+    <tbody id="services">
       <% @services.each do |service| %>
         <% ping = ping(service.address, service.port) %>
         <% if ping == true %>
-        <tr class="success">
+        <tr class="success" id="service<%= service.id %>">
           <td class="status"><span class="fa fa-circle-o-notch"></span> online</td>
         <% else %>
-        <tr class="danger">
+        <tr class="danger" id="service<%= service.id %>">
           <td class="status"><span class="fa fa-power-off"></span> offline</td>
         <% end %>
           <td class="name"><%= link_to service.name, edit_service_path(service) %></td>
           <td class="address"><span class="fa fa-desktop"> <%= service.address %></span></td>
           <td class="port"><span class="fa fa-slack"> <%= service.port %></span></td>
+          <td class="action">
+            <%= link_to '', services_movedown_path(id: service.id), class: 'left btn btn-default fa fa-arrow-down' if @services.where(position: service.position.to_i-1).present? %>
+            <%= link_to '', services_moveup_path(id: service.id), class: 'right btn btn-default fa fa-arrow-up' if @services.where(position: service.position.to_i+1).present? %>
+          </td>
         </tr>
       <% end %>
     </tbody>
   </table>
 </div>
+
+

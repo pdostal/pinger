@@ -12,5 +12,8 @@
 .address { text-align: left; min-width: 150px; max-width: 150px; }
 .port { text-align: center; min-width: 30px; max-width: 30px; }
 .status { text-align: center; min-width: 50px; max-width: 50px; }
+.action { min-width: 35px; max-width: 35px; }
+.action>.left { float: left; }
+.action>.right { float: right; }
 .table>tbody>tr>td { border-top: none; }
 .table>thead>tr>th { border-bottom: none; }
