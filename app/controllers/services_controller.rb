@@ -3,7 +3,12 @@ class ServicesController < ApplicationController
 
   # GET /services
   def index
-    @services = Service.order(position: :desc)
+    @services = Service.order(position: :asc)
+  end
+
+  # POST /services/move
+  def movedown
+    redirect_to services_url
   end
 
   # POST /services/moveup
@@ -41,16 +46,12 @@ class ServicesController < ApplicationController
 
   # GET /services/1/edit
   def edit
+    @position = Service.where(id: params[:id]).first.position
   end
 
   # POST /services
   def create
-    if position = Service.last.present?
-      position = Service.last.position.to_i+1
-    else
-      position = 1
-    end
-    @service = Service.new(service_params, position: position)
+    @service = Service.new(service_params)
 
     respond_to do |format|
       if @service.save
@@ -88,6 +89,6 @@ class ServicesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def service_params
-      params.require(:service).permit(:name, :address, :port)
+      params.require(:service).permit(:name, :address, :port, :position)
     end
 end
