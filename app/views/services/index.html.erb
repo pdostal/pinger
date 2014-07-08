@@ -28,8 +28,8 @@
           <td class="address"><span class="fa fa-desktop"> <%= service.address %></span></td>
           <td class="port"><span class="fa fa-slack"> <%= service.port %></span></td>
           <td class="action">
-            <%= link_to '', services_movedown_path(id: service.id), class: 'left btn btn-default fa fa-arrow-down' if @services.where(position: service.position.to_i-1).present? %>
-            <%= link_to '', services_moveup_path(id: service.id), class: 'right btn btn-default fa fa-arrow-up' if @services.where(position: service.position.to_i+1).present? %>
+            <%= link_to '', services_movedown_path(id: service.id), class: 'left btn btn-default fa fa-arrow-down' if @services.where(position: service.position.to_i+1).present? %>
+            <%= link_to '', services_moveup_path(id: service.id), class: 'right btn btn-default fa fa-arrow-up' if @services.where(position: service.position.to_i-1).present? %>
           </td>
         </tr>
       <% end %>

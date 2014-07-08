@@ -23,9 +23,16 @@
     <%= f.label :port %>
     <%= f.number_field :port, class: 'form-control' %>
   </div>
-  <div class="">
+  <div class="form-group">
+    <%= f.label :position %>
+    <%= f.number_field :position, class: 'form-control', value: @position %>
+  </div>
+  <div class="form-action">
     <%= button_tag nil, class: 'btn btn-default' do %>
       <span class="fa fa-check"> Submit</span>
+    <% end %>
+    <%= link_to services_path, class: 'btn' do %>
+      <span class="fa fa-reply"> Back</span>
     <% end %>
   </div>
 <% end %>
