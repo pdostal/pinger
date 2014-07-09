@@ -1,9 +1,9 @@
 <% ping = ping(service.address, service.port) %>
 <tr id="service<%= service.id %>">
-  <% if ping == true %>
-  <td class="status success"><span class="fa fa-circle-o-notch"></span> online</td>
-  <% else %>
+  <% if ping == false %>
   <td class="status danger"><span class="fa fa-power-off"></span> offline</td>
+  <% else %>
+  <td class="status success"><span class="fa fa-circle-o-notch"></span> online</td>
   <% end %>
   <td class="name"><%= link_to service.name, edit_service_path(service) %></td>
   <td class="address"><span class="fa fa-desktop"> <%= service.address %></span></td>
