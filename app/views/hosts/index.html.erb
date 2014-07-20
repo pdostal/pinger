@@ -1,27 +1,34 @@
-<h1>Listing hosts</h1>
-
-<table>
-  <thead>
-    <tr>
-      <th>Name</th>
-      <th>Address</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @hosts.each do |host| %>
+<div class="table-responsive">
+  <%= render 'layouts/header' %>
+  <%= link_to new_host_path, class: 'btn btn-xs btn-primary' do %>
+    <span class="fa fa-plus"></span> Add host
+  <% end %>
+  <table class="table table-hover">
+    <thead>
       <tr>
-        <td><%= host.name %></td>
-        <td><%= host.address %></td>
-        <td><%= link_to 'Show', host %></td>
-        <td><%= link_to 'Edit', edit_host_path(host) %></td>
-        <td><%= link_to 'Destroy', host, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <th class="name">Name</th>
+        <th class="address">Address</th>
+        <th class="status">Status</th>
+      </tr>
+    </thead>
+
+    <tbody id="services">
+    <% @hosts.each do |host| %>
+      <% ping = ping(host.address) %>
+      <% if ping == 0 %>
+      <tr class="danger" id="service<%= host.id %>">
+      <% else %>
+      <tr class="success" id="service<%= host.id %>">
+      <% end %>
+        <td class="name"><%= link_to edit_host_path(host) do %><span class="fa fa-power-off"></span> <%= host.name %><% end %></td>
+        <td class="address"><span class="fa fa-desktop"> <%= host.address %></span></td>
+        <% if ping == 0 %>
+        <td class="status"><span class="fa fa-power-off"></span> offline</td>
+        <% else %>
+        <td class="status"><span class="fa fa-circle-o-notch"></span> <%= ping %> ms</td>
+        <% end %>
       </tr>
     <% end %>
-  </tbody>
-</table>
-
-<br>
-
-<%= link_to 'New Host', new_host_path %>
+    </tbody>
+  </table>
+</div>
