@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  resources :hosts
+
   root 'services#index'
 
   resources :services
