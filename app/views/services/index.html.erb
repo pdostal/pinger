@@ -1,25 +1,36 @@
 <div class="table-responsive">
-  <h1><span class="fa fa-list"></span> Services</h1>
+  <%= render 'layouts/header' %>
   <%= link_to new_service_path, class: 'btn btn-xs btn-primary' do %>
     <span class="fa fa-plus"></span> Add service
   <% end %>
   <table class="table table-hover">
     <thead>
       <tr>
-        <th class="status">Status</th>
         <th class="name">Name</th>
-        <th class="address">Address</th>
         <th class="port">Port</th>
-        <th class="action"></th>
+        <th class="address">Address</th>
+        <th class="status">Status</th>
       </tr>
     </thead>
 
     <tbody id="services">
-      <% @services.each do |service| %>
-        <%= render partial: 'node', locals: { service: service } %>
+    <% @services.each do |service| %>
+      <% ping = ping(service.address, service.port) %>
+      <% if ping == 0 %>
+      <tr class="danger" id="service<%= service.id %>">
+      <% else %>
+      <tr class="success" id="service<%= service.id %>">
       <% end %>
+        <td class="name"><%= link_to edit_service_path(service) do %><span class="fa fa-power-off"></span> <%= service.name %><% end %></td>
+        <td class="port"><span class="fa fa-slack"> <%= service.port %></span></td>
+        <td class="address"><span class="fa fa-desktop"> <%= service.address %></span></td>
+        <% if ping == 0 %>
+        <td class="status"><span class="fa fa-power-off"></span> offline</td>
+        <% else %>
+        <td class="status"><span class="fa fa-circle-o-notch"></span> <%= ping %> ms</td>
+        <% end %>
+      </tr>
+    <% end %>
     </tbody>
   </table>
 </div>
-
-

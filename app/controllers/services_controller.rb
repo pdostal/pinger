@@ -6,34 +6,6 @@ class ServicesController < ApplicationController
     @services = Service.order(position: :asc)
   end
 
-  # POST /services/movedown
-  def movedown
-    actual = Service.where(id: params[:id]).first
-    if actual.present?
-      original = Service.where(position: actual.position.to_i + 1).first
-      actual.position = actual.position.to_i + 1
-      if actual.save
-        original.position = original.position.to_i - 1
-        original.save
-      end
-    end
-    redirect_to services_url
-  end
-
-  # POST /services/moveup
-  def moveup
-    actual = Service.where(id: params[:id]).first
-    if actual.present?
-      original = Service.where(position: actual.position.to_i - 1).first
-      actual.position = actual.position.to_i - 1
-      if actual.save
-        original.position = original.position.to_i + 1
-        original.save
-      end
-    end
-    redirect_to services_url
-  end
-
   # GET /services/new
   def new
     if Service.last.present?

@@ -6,12 +6,13 @@ class HostsController < ApplicationController
     @hosts = Host.all
   end
 
-  # GET /hosts/1
-  def show
-  end
-
   # GET /hosts/new
   def new
+    if Host.last.present?
+      @position = Host.last.position + 1
+    else
+      @position = 1
+    end
     @host = Host.new
   end
 
@@ -59,6 +60,6 @@ class HostsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def host_params
-      params.require(:host).permit(:name, :address)
+      params.require(:host).permit(:name, :address, :position)
     end
 end

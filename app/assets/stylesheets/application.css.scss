@@ -5,11 +5,13 @@
  *= require_self
 */
 
+a { color: #000; text-decoration: none; }
+a:hover { text-decoration: none; color: #08298A; }
 .row { margin-top: 50px; }
 .table-responsive>h1 { display: inline; }
 .table-responsive>.btn { float: right; margin: 15px 5px 0px 0px; }
 .table td { white-space: nowrap; }
-.name>a { color: #000; }
+.name>a { font-weight: bold; }
 .address { min-width: 80px; max-width: 80px; }
 .address { text-align: left; min-width: 150px; max-width: 150px; }
 .port { text-align: center; min-width: 60px; max-width: 60px; }
@@ -19,4 +21,5 @@
 .action>.right { float: right; }
 form .delete { float: right; }
 .table>tbody>tr>td { border-top: none; }
-.table>thead>tr>th { border-bottom: none; }
+.table>thead>tr>th { border-bottom: none; padding-bottom: 0px; }
+footer { text-align: center; font-style: italic; }
