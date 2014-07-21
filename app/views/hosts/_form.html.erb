@@ -11,15 +11,21 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= f.label :name %><br>
-    <%= f.text_field :name %>
+  <div class="form-group">
+    <%= f.label :name %>
+    <%= f.text_field :name, class: 'form-control' %>
   </div>
-  <div class="field">
-    <%= f.label :address %><br>
-    <%= f.text_field :address %>
+  <div class="form-group">
+    <%= f.label :address %>
+    <%= f.text_field :address, class: 'form-control' %>
   </div>
-  <div class="actions">
-    <%= f.submit %>
+  <div class="form-group">
+    <%= f.label :position %>
+    <%= f.number_field :position, class: 'form-control', value: @position %>
+  </div>
+  <div class="form-action">
+    <%= button_tag ' Submit', class: 'btn btn-primary fa fa-check' %>
+    <%= link_to ' Back', hosts_path, class: 'btn btn-default fa fa-reply' %>
+    <%= link_to ' Delete', @host, method: :delete, class: 'delete btn btn-primary btn-danger fa fa-trash-o', data: { confirm: 'Are you sure?' } if @host.id? %>
   </div>
 <% end %>

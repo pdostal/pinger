@@ -18,6 +18,7 @@ class HostsController < ApplicationController
 
   # GET /hosts/1/edit
   def edit
+    @position = Host.where(id: params[:id]).first.position
   end
 
   # POST /hosts
@@ -26,7 +27,7 @@ class HostsController < ApplicationController
 
     respond_to do |format|
       if @host.save
-        format.html { redirect_to @host, notice: 'Host was successfully created.' }
+        format.html { redirect_to hosts_url, notice: 'Host was successfully created.' }
       else
         format.html { render :new }
       end
@@ -37,7 +38,7 @@ class HostsController < ApplicationController
   def update
     respond_to do |format|
       if @host.update(host_params)
-        format.html { redirect_to @host, notice: 'Host was successfully updated.' }
+        format.html { redirect_to hosts_url, notice: 'Host was successfully updated.' }
       else
         format.html { render :edit }
       end
