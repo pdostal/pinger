@@ -1,9 +1,16 @@
 class HostsController < ApplicationController
-  before_action :set_host, only: [:show, :edit, :update, :destroy]
+  before_action :set_host, only: [:item, :edit, :update, :destroy]
 
   # GET /hosts
   def index
     @hosts = Host.all
+  end
+
+  # GET /item
+  def item
+    respond_to do |format|
+        format.js
+    end
   end
 
   # GET /hosts/new

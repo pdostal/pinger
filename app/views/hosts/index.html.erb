@@ -14,19 +14,11 @@
 
     <tbody id="services">
     <% @hosts.each do |host| %>
-      <% ping = ping(host.address) %>
-      <% if ping == 0 %>
-      <tr class="danger" id="service<%= host.id %>">
-      <% else %>
-      <tr class="success" id="service<%= host.id %>">
-      <% end %>
+      <script>$(window).load(function() { $.getScript('<%= hosts_item_path id: 1 %>.js'); }); </script>
+      <tr class="" id="service<%= host.id %>">
         <td class="name"><%= link_to edit_host_path(host) do %><span class="fa fa-power-off"></span> <%= host.name %><% end %></td>
         <td class="address"><span class="fa fa-desktop"> <%= host.address %></span></td>
-        <% if ping == 0 %>
-        <td class="status"><span class="fa fa-power-off"></span> offline</td>
-        <% else %>
-        <td class="status"><span class="fa fa-circle-o-notch"></span> <%= ping %> ms</td>
-        <% end %>
+        <td class="status"></td>
       </tr>
     <% end %>
     </tbody>

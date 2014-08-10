@@ -1,0 +1,15 @@
+<% ping = ping(@host.address) %>
+
+// Color
+<% if ping == 0 %>
+$('#service<%= @host.id %>').addClass( "danger" );
+<% else %>
+$('#service<%= @host.id %>').addClass( "success" );
+<% end %>
+
+// Status
+<% if ping == 0 %>
+$('#service<%= @host.id %>>.status').html( '<span class="fa fa-power-off"></span> offline' );
+<% else %>
+$('#service<%= @host.id %>>.status').html( '<span class="fa fa-circle-o-notch"></span> <%= ping %> ms' );
+<% end %>
