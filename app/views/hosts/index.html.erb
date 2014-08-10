@@ -14,7 +14,7 @@
 
     <tbody id="services">
     <% @hosts.each do |host| %>
-      <script>$(window).load(function() { $.getScript('<%= hosts_item_path id: 1 %>.js'); }); </script>
+      <script>$(window).load(function() { $.getScript('<%= hosts_item_path id: host.id %>.js'); }); </script>
       <tr class="" id="service<%= host.id %>">
         <td class="name"><%= link_to edit_host_path(host) do %><span class="fa fa-power-off"></span> <%= host.name %><% end %></td>
         <td class="address"><span class="fa fa-desktop"> <%= host.address %></span></td>

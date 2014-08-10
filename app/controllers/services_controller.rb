@@ -1,9 +1,16 @@
 class ServicesController < ApplicationController
-  before_action :set_service, only: [:show, :edit, :update, :destroy]
+  before_action :set_service, only: [:item, :edit, :update, :destroy]
 
   # GET /services
   def index
     @services = Service.order(position: :asc)
+  end
+
+  # GET /item
+  def item
+    respond_to do |format|
+        format.js
+    end
   end
 
   # GET /services/new
