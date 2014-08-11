@@ -21,22 +21,12 @@ class ServicesControllerTest < ActionController::TestCase
       post :create, service: { address: @service.address, name: @service.name, port: @service.port }
     end
 
-    assert_redirected_to service_path(assigns(:service))
-  end
-
-  test "should show service" do
-    get :show, id: @service
-    assert_response :success
-  end
-
-  test "should get edit" do
-    get :edit, id: @service
-    assert_response :success
+    assert_redirected_to services_path
   end
 
   test "should update service" do
     patch :update, id: @service, service: { address: @service.address, name: @service.name, port: @service.port }
-    assert_redirected_to service_path(assigns(:service))
+    assert_redirected_to services_path
   end
 
   test "should destroy service" do

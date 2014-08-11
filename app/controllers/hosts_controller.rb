@@ -15,7 +15,7 @@ class HostsController < ApplicationController
 
   # GET /hosts/new
   def new
-    if Host.last.present?
+    if Host.last.present? and Host.last.position.present?
       @position = Host.last.position + 1
     else
       @position = 1

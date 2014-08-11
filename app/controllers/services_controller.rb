@@ -15,7 +15,7 @@ class ServicesController < ApplicationController
 
   # GET /services/new
   def new
-    if Service.last.present?
+    if Service.last.present? and Service.last.position.present?
       @position = Service.last.position + 1
     else
       @position = 1

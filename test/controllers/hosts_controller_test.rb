@@ -21,12 +21,7 @@ class HostsControllerTest < ActionController::TestCase
       post :create, host: { address: @host.address, name: @host.name }
     end
 
-    assert_redirected_to host_path(assigns(:host))
-  end
-
-  test "should show host" do
-    get :show, id: @host
-    assert_response :success
+    assert_redirected_to hosts_path
   end
 
   test "should get edit" do
@@ -36,7 +31,7 @@ class HostsControllerTest < ActionController::TestCase
 
   test "should update host" do
     patch :update, id: @host, host: { address: @host.address, name: @host.name }
-    assert_redirected_to host_path(assigns(:host))
+    assert_redirected_to hosts_path
   end
 
   test "should destroy host" do
