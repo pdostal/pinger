@@ -16,3 +16,6 @@ gem 'spring', group: :development
 gem 'debugger', group: [:development, :test]
 gem 'net-ping'
 gem 'rails_12factor', group: :production
+gem 'capistrano', group: :development
+gem 'capistrano-rails', group: :development
+gem 'capistrano-rvm', group: :development
