@@ -8,8 +8,8 @@ set :log_level, :info
 # set :default_env, { rvm_bin_path: '~/.rvm/bin' }
 set :keep_releases, 3
 
-set :linked_files, %w{config/database.yml config/initializers/secret_token.rb}
-set :linked_dirs, %w{bin log tmp/pids tmp/cache tmp/sockets vendor/bundle public/system public/assets}
+# set :linked_files, %w{config/database.yml config/initializers/secret_token.rb}
+# set :linked_dirs, %w{bin log tmp/pids tmp/cache tmp/sockets vendor/bundle public/system public/assets}
 
 namespace :deploy do
 
