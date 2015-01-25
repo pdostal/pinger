@@ -1,0 +1,19 @@
+{ "name": "pinger",
+  "description": "Check if everything's OK",
+  "version": "0.0.1",
+  "dependencies" : {
+    "http": "",
+    "moment": ""
+  },
+  "repository" : {
+    "type" : "git",
+    "url" : "https://github.com/pdostal/pinger.git"
+  },
+  "devDependencies": {
+    "coffee-script": "~1"
+  },
+  "scripts": {
+    "prepublish": "coffee -c app.coffee"
+  },
+  "main": "app.js"
+}
