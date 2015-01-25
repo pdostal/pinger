@@ -1,4 +1,10 @@
-app = require('express')
-moment = require('moment')
+express  = require 'express'
+moment = require 'moment'
+app = express()
 
-console.log "Server's running..."
+app.get '/', (req, res) ->
+  res.send 'Hello World !\n'
+  console.log moment().format('hh:mm:ss')+' /'
+
+app.listen 9292, ->
+  console.log "Listening on port 9292 ..."
