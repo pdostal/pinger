@@ -3,7 +3,7 @@ moment = require 'moment'
 app = express()
 
 app.get '/', (req, res) ->
-  res.send 'Hello World !\n'
+  res.render 'index.ejs'
   console.log moment().format('hh:mm:ss')+' /'
 
 server = app.listen 9292, ->
