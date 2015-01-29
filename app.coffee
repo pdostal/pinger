@@ -6,5 +6,5 @@ app.get '/', (req, res) ->
   res.send 'Hello World !\n'
   console.log moment().format('hh:mm:ss')+' /'
 
-app.listen 9292, ->
-  console.log "Listening on port 9292 ..."
+server = app.listen 9292, ->
+  console.log 'Listening on %s', server.address().port
