@@ -1,0 +1,26 @@
+[
+  {
+    "name" : "lsd",
+    "address" : "lsd.pdostal.cz",
+    "service" : {
+      "name" : "ssh",
+      "port" : "22"
+    }
+  },
+  {
+    "name" : "vps",
+    "address" : "vps.pdostal.cz",
+    "service" : {
+      "name" : "ssh",
+      "port" : "22"
+    }
+  },
+  {
+    "name" : "shark",
+    "address" : "shark.pdostal.cz",
+    "service" : {
+      "name" : "ssh",
+      "port" : "22"
+    }
+  }
+]
