@@ -11,7 +11,8 @@
     "url" : "https://github.com/pdostal/pinger.git"
   },
   "devDependencies": {
-    "coffee-script": "~1"
+    "coffee-script": "~1",
+    "nodemon": "~1"
   },
   "scripts": {
     "prepublish": "coffee -c app.coffee"

@@ -1,0 +1,16 @@
+{
+  "verbose": true,
+  "ignore": [
+    "*.md",
+    "*.js"
+  ],
+  "watch": [
+    "*.coffee",
+    "public/*.coffee",
+    "views/*.ejs"
+  ],
+  "execMap": {
+    "js": "node",
+    "coffee": "coffee"
+  }
+}
