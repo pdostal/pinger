@@ -17,5 +17,5 @@
   "scripts": {
     "prepublish": "coffee -c app.coffee"
   },
-  "main": "app.js"
+  "main": "app.coffee"
 }
