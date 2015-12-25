@@ -22,12 +22,8 @@ ping4 = (host) ->
 list = JSON.parse fs.readFileSync 'list.json'
 
 app.get '/', (req, res) ->
-  res.render 'index.ejs'
   console.log moment().format('hh:mm:ss')+' /'
+  res.render 'index.ejs'
 
 server = app.listen 9292, ->
   console.log 'Listening on %s', server.address().port
-  list.forEach (item, i) ->
-    result4 = ping4(item.address)
-    result6 = ping6(item.address)
-    console.log "#{item.name}: #{result4} #{result6}"

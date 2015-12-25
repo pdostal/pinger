@@ -1,1 +1,5 @@
-Hello, world !
+<% list.forEach(item) { %>
+  <% var result4 = ping4(item.address); %>
+  <% var result6 = ping6(item.address); %>
+  <%= item.name %>: <%= result4 %> <%= result6 %><br />
+<% } %>
