@@ -1,26 +1,7 @@
 [
-  {
-    "name" : "lsd",
-    "address" : "lsd.pdostal.cz",
-    "service" : {
-      "name" : "ssh",
-      "port" : "22"
-    }
-  },
-  {
-    "name" : "vps",
-    "address" : "vps.pdostal.cz",
-    "service" : {
-      "name" : "ssh",
-      "port" : "22"
-    }
-  },
-  {
-    "name" : "shark",
-    "address" : "shark.pdostal.cz",
-    "service" : {
-      "name" : "ssh",
-      "port" : "22"
-    }
-  }
+  { "name" : "cucumber", "address" : "cucumber.pdostal.cz" },
+  { "name" : "rhubarb", "address" : "rhubarb.pdostal.cz" },
+  { "name" : "sorrel", "address" : "sorrel.pdostal.cz" },
+  { "name" : "grape", "address" : "grape.pdostal.cz" },
+  { "name" : "peas", "address" : "peas.pdostal.cz" }
 ]
